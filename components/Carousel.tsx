@@ -1,5 +1,7 @@
 "use client";
 
+import { assetPath } from "@/lib/asset";
+
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -52,7 +54,7 @@ export default function Carousel({ media, projectNum, altPrefix = "Screenshot" }
               // Real screenshot
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={src}
+                src={assetPath(src)}
                 alt={`${altPrefix} ${i + 1}`}
                 className="carousel__img"
                 loading="lazy"

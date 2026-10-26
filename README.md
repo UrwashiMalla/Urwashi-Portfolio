@@ -3,7 +3,7 @@
 An immersive, interactive developer portfolio built with **Next.js 16**, **React Three Fiber**, and **Tailwind CSS v4**. Features a 3D mechanical keyboard hero scene with verified backend/system architecture tech stack icons, seasonal themes, smooth scroll animations, bilingual support (English & Hinglish), and an interactive contact modal.
 
 **Target Role:** System Architect & Backend Engineer  
-**Connect:** [LinkedIn](https://www.linkedin.com/in/urwashi-malla-63b499403/) &nbsp;|&nbsp; [GitHub](https://github.com/adi-Git-Hub) &nbsp;|&nbsp; [Email](mailto:urwashimalla@gmail.com)
+**Connect:** [LinkedIn](https://www.linkedin.com/in/urwashi-malla-63b499403/) &nbsp;|&nbsp; [GitHub](https://github.com/UrwashiMalla) &nbsp;|&nbsp; [Email](mailto:urwashimalla@gmail.com)
 
 ---
 
@@ -18,7 +18,7 @@ An immersive, interactive developer portfolio built with **Next.js 16**, **React
   - **Modular Microservices Auth Service** — Production-grade authentication service with JWT rotation, Redis session caching, and rate limiting.
 - **Interactive Contact Modal:**
   - **Hiring & Other:** Synchronously transfers visitors directly to Google Gmail web compose with pre-filled subject and inquiry details.
-  - **Project Inquiries:** Dispatches project collaboration inquiries to `/api/contact` and displays an inquiry confirmation screen.
+  - **Project Inquiries:** Dispatches project collaboration inquiries to FormSubmit / contact API and displays an inquiry confirmation screen.
 - **Bilingual Experience (EN / Hinglish)** — Toggle between English and natural Hinglish.
 - **Smooth Scroll & Micro-interactions** — Powered by [Lenis](https://github.com/darkroomengineering/lenis) with custom cursor and magnetic hover effects.
 
@@ -34,7 +34,7 @@ An immersive, interactive developer portfolio built with **Next.js 16**, **React
 | **Smooth Scroll** | [Lenis](https://github.com/darkroomengineering/lenis) |
 | **Icons** | [Simple Icons](https://simpleicons.org/) |
 | **Language** | TypeScript |
-| **Deploy** | Vercel / Docker |
+| **Deploy** | GitHub Pages / Vercel / Docker |
 
 ---
 
@@ -49,8 +49,8 @@ An immersive, interactive developer portfolio built with **Next.js 16**, **React
 
 ```bash
 # Clone the repository
-git clone https://github.com/adi-Git-Hub/portfolio-urwashi.git
-cd portfolio-urwashi
+git clone https://github.com/UrwashiMalla/Urwashi-Portfolio.git
+cd Urwashi-Portfolio
 
 # Install dependencies
 npm install
@@ -64,9 +64,24 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ### Build for Production
 
 ```bash
+# Production server build (standalone)
 npm run build
 npm start
+
+# Static export build (e.g., GitHub Pages)
+OUTPUT_EXPORT=true npm run build
 ```
+
+### Deploy to GitHub Pages
+
+This repository is pre-configured with a **GitHub Actions** workflow (`.github/workflows/deploy.yml`):
+
+1. Go to your repository on GitHub: `https://github.com/UrwashiMalla/Urwashi-Portfolio`.
+2. Navigate to **Settings** > **Pages** (under "Code and automation").
+3. Under **Build and deployment** > **Source**, choose **GitHub Actions**.
+4. Push any commit to the `main` branch (or run the workflow manually under **Actions** > **Deploy Next.js site to Pages** > **Run workflow**).
+5. Your portfolio site will be live at:
+   `https://urwashimalla.github.io/Urwashi-Portfolio/`
 
 ### Docker
 

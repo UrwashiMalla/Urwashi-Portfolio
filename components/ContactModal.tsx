@@ -72,24 +72,49 @@ export default function ContactModal({
 
     setIsSubmitting(true);
 
-    // 1. Dispatch to our backend API (/api/contact) to store inquiry and trigger email dispatch
+    const messageText =
+      trimmedNote ||
+      (selectedPurpose === "hiring"
+        ? "Hiring / Role inquiry from portfolio"
+        : selectedPurpose === "project"
+        ? "Project collaboration inquiry"
+        : "General networking inquiry");
+
+    // 1. Dispatch inquiry: first try local /api/contact, fallback to FormSubmit directly (for static hosting like GitHub Pages)
     try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: trimmedName,
-          email: trimmedEmail,
-          purpose: selectedPurpose,
-          message:
-            trimmedNote ||
-            (selectedPurpose === "hiring"
-              ? "Hiring / Role inquiry from portfolio"
-              : selectedPurpose === "project"
-              ? "Project collaboration inquiry"
-              : "General networking inquiry"),
-        }),
-      });
+      let dispatched = false;
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: trimmedName,
+            email: trimmedEmail,
+            purpose: selectedPurpose,
+            message: messageText,
+          }),
+        });
+        if (res.ok) dispatched = true;
+      } catch {
+        // /api/contact not available in static export
+      }
+
+      if (!dispatched) {
+        await fetch("https://formsubmit.co/ajax/urwashimalla@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `New Portfolio Inquiry [${selectedPurpose.toUpperCase()}]: ${trimmedName}`,
+            name: trimmedName,
+            email: trimmedEmail,
+            purpose: selectedPurpose,
+            message: messageText,
+          }),
+        });
+      }
     } catch (err) {
       console.warn("[ContactModal] Background inquiry dispatch warning:", err);
     } finally {

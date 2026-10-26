@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { assetPath } from "@/lib/asset";
 import FrozenKeyboard from "@/components/FrozenKeyboard";
 import SmoothScroll from "@/components/smooth-scroll";
 import Reveal from "@/components/Reveal";
@@ -393,9 +394,9 @@ export default function Home() {
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(122,166,208,0.22),transparent_70%)] pointer-events-none" />
 
                       <picture>
-                        <source srcSet="/urwashi_transparent.webp" type="image/webp" />
+                        <source srcSet={assetPath("/urwashi_transparent.webp")} type="image/webp" />
                         <img
-                          src="/urwashi_transparent.png"
+                          src={assetPath("/urwashi_transparent.png")}
                           alt="Urwashi Malla"
                           className="w-full h-full object-contain object-bottom drop-shadow-[0_12px_28px_rgba(0,0,0,0.75)] transition-transform duration-500 group-hover:scale-[1.03]"
                           loading="eager"
@@ -470,7 +471,7 @@ export default function Home() {
                     style={{ ["--d" as string]: "650ms" }}
                   >
                     <a
-                      href="/cv.pdf"
+                      href={assetPath("/cv.pdf")}
                       target="_blank"
                       rel="noopener noreferrer"
                       data-cursor="hover"

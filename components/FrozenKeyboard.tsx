@@ -1,5 +1,7 @@
 "use client";
 
+import { assetPath } from "@/lib/asset";
+
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   Environment,
@@ -328,8 +330,8 @@ function installAudioUnlock() {
 // hover for variety. Fetched + decoded once on first play; subsequent hovers
 // just spawn a fresh BufferSource (cheap, can overlap).
 const KEY_SOUND_URLS = [
-  "/sounds/switch_press.mp3",
-  "/sounds/switch_release.mp3",
+  assetPath("/sounds/switch_press.mp3"),
+  assetPath("/sounds/switch_release.mp3"),
 ] as const;
 const keySoundBuffers: (AudioBuffer | null)[] = [null, null];
 let keySoundsLoading: Promise<void> | null = null;
@@ -783,7 +785,7 @@ function Keyboard({ mobile }: { mobile: boolean }) {
                 letter stays fixed regardless of how long the title is. */}
             <Text3D
               key={hoveredIcon.slug}
-              font="/fonts/space_grotesk_bold.typeface.json"
+              font={assetPath("/fonts/space_grotesk_bold.typeface.json")}
               size={0.25}
               height={0.1}
               curveSegments={12}
