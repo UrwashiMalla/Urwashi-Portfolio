@@ -1,11 +1,13 @@
 "use client";
 
-import { LANGUAGES } from "@/lib/i18n";
+import { LANGUAGES, type Lang } from "@/lib/i18n";
 import { useLanguage } from "@/components/LanguageProvider";
 
-// Compact ES / EN segmented toggle, styled to match the season picker and
-// the GitHub button in the header. The chosen language is persisted in
-// localStorage via the provider.
+const LABELS: Record<Lang, string> = {
+  en: "EN",
+  hi: "Hinglish",
+};
+
 export default function LanguagePicker({
   className = "",
 }: {
@@ -28,13 +30,13 @@ export default function LanguagePicker({
             onClick={() => setLang(code)}
             data-cursor="hover"
             aria-pressed={active}
-            className={`px-2.5 h-6 rounded-full text-[11px] font-semibold tracking-wider uppercase transition-all duration-200 ${
+            className={`px-2.5 h-6 rounded-full text-[11px] font-semibold tracking-wider transition-all duration-200 ${
               active
                 ? "bg-ice-100 text-background"
                 : "text-ice-300 hover:text-ice-50"
             }`}
           >
-            {code}
+            {LABELS[code] ?? code.toUpperCase()}
           </button>
         );
       })}

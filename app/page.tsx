@@ -11,17 +11,17 @@ import LanguagePicker from "@/components/LanguagePicker";
 import ProjectModal, {
   type ProjectDetail,
 } from "@/components/ProjectModal";
+import ContactModal from "@/components/ContactModal";
 import { useLanguage } from "@/components/LanguageProvider";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { SKILLS_FLAT } from "@/lib/skills";
 import type { Lang } from "@/lib/i18n";
 
-const EMAIL = "josemariaalberobelamendia@gmail.com";
+const EMAIL = "urwashimalla@gmail.com";
+const GITHUB_URL = "https://github.com/UrwashiMalla";
+const LINKEDIN_URL = "https://www.linkedin.com/in/urwashi-malla-63b499403/";
 
-// Localised content lives in `{ es, en }` objects inside these arrays so the
-// page can be a straightforward array.map() at render time. Tech names stay
-// as plain strings (they're brand names, not localised).
-type Localised = { es: string; en: string };
+type Localised = { en: string; hi: string };
 
 type Project = ProjectDetail & {
   align: "left" | "right";
@@ -32,145 +32,130 @@ const projects: Project[] = [
   {
     num: "01",
     name: {
-      es: "Contestador IA de Reseñas Google",
-      en: "AI Responder for Google Reviews",
+      en: "SolivaGuard — E-Commerce Platform",
+      hi: "SolivaGuard — E-Commerce Platform",
     },
     stack: [
-      "Next.js",
-      "FastAPI",
-      "Python",
-      "PostgreSQL",
-      "Supabase",
-      "Claude API",
-      "Stripe",
-      "Celery",
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+      "REST APIs",
+      "Docker",
+      "Node.js",
     ],
     desc: {
-      es: "SaaS que genera respuestas personalizadas a reseñas de Google Business Profile con IA, manteniendo el tono de la marca.",
-      en: "SaaS that generates personalised replies to Google Business Profile reviews with AI while keeping the brand tone.",
+      en: "Production e-commerce platform for UV-protective apparel featuring responsive product discovery, secure checkout workflows, and modular UI architecture.",
+      hi: "UV-protective activewear ke liye production e-commerce platform, responsive product discovery aur secure checkout workflows ke sath.",
     },
     details: {
-      es: "Plataforma orientada a negocios locales en España para gestionar sus reseñas de Google Business Profile. El sistema hace polling cada 15 minutos, llama a Claude para generar respuestas alineadas con el tono de marca y las publica automáticamente (o las manda a revisión). Incluye Stripe con suscripciones y Customer Portal, autenticación con Google OAuth + PKCE, alertas por email/SMS para reseñas negativas y un dashboard con métricas.",
-      en: "A platform for local businesses in Spain to manage their Google Business Profile reviews. The system polls every 15 minutes, uses Claude to draft replies in the brand's tone and publishes them automatically (or sends them to review). Stripe handles subscriptions and Customer Portal, auth is Google OAuth with PKCE, and negative reviews fire email/SMS alerts. Dashboard with metrics included.",
+      en: "SolivaGuard is a full-scale commercial e-commerce solution. Focused on storefront architecture and user experience, implementing modular, reusable React UI components across desktop and mobile screens. Integrated with backend REST endpoints, optimized product browsing performance, and supported containerized deployment configurations with Docker and Nginx.",
+      hi: "SolivaGuard ek high-performance e-commerce platform hai. Maine iska customer-facing storefront React se architect kiya, reusable modular UI components banaye aur backend REST endpoints ke sath integrate kiya. Docker aur Nginx ke deployment containers configure karne me contribute kiya.",
     },
-    url: "https://revio.txemaalbero.com/",
+    url: "https://solivaguard.com",
     media: [
-      "/projects/revio/landing.png",
-      "/projects/revio/dashboard.png",
-      "/projects/revio/alertas.png",
-      "/projects/revio/analiticas.png",
-      "/projects/revio/negocios.png",
-      "/projects/revio/analiticas-ia.png",
+      "/projects/solivaguard/banner.webp",
+      "/projects/solivaguard/protection.webp",
+      "/projects/solivaguard/commute.webp",
+      "/projects/solivaguard/details.webp",
+      "/projects/solivaguard/logo.webp",
+      "/projects/solivaguard/nav.webp",
     ],
-    highlights: ["nextdotjs", "tailwindcss", "python", "postgresql"],
+    highlights: ["react", "javascript", "tailwindcss", "docker", "nodedotjs"],
     align: "left",
     section: "project1",
   },
   {
     num: "02",
     name: {
-      es: "Control de Temperaturas APPCC",
-      en: "HACCP Temperature Control",
+      en: "Authentication & Security System",
+      hi: "Authentication & Security System",
     },
     stack: [
-      "Next.js 16",
-      "FastAPI",
-      "Python",
+      "Node.js",
+      "Express.js",
       "PostgreSQL",
-      "Supabase",
-      "Claude API",
-      "Stripe",
-      "Celery",
+      "JWT",
+      "Bcrypt",
+      "React",
+      "Axios",
     ],
     desc: {
-      es: "App para restaurantes que digitaliza el registro de temperaturas APPCC y genera planes e informes automáticos para inspecciones sanitarias.",
-      en: "App for restaurants that digitises HACCP temperature logs and auto-generates plans and reports for food safety inspections.",
+      en: "Full-stack authentication and session management engine featuring JWT tokens, email OTP verification, bcrypt password hashing, and PostgreSQL persistence.",
+      hi: "JWT access tokens, email OTP verification, bcrypt password hashing aur PostgreSQL storage ke sath full-stack auth engine.",
     },
     details: {
-      es: "Digitaliza el control APPCC completo de un restaurante: registros de temperatura, trazabilidad, alérgenos y generación asistida por IA de los planes HACCP. Integración con Open Food Facts para importar alérgenos, MFA en la autenticación, multi-idioma con next-intl y pagos por suscripción con Stripe. Backend 100% async con FastAPI + SQLAlchemy y tareas en Celery.",
-      en: "Full HACCP digitisation for a restaurant: temperature logs, traceability, allergens, and AI-assisted generation of HACCP plans. Integrates with Open Food Facts for allergens, MFA-protected auth, i18n with next-intl, subscription billing with Stripe. Fully async backend with FastAPI + SQLAlchemy and Celery workers.",
+      en: "Engineered a production-ready authentication subsystem covering user registration, authenticated session lifecycles, and password recovery. The Express backend handles JWT signing/verification, bcrypt salt hashing, automated email OTP delivery via Nodemailer, and structured audit persistence in PostgreSQL. Frontend integrates client-side protected route guards with React Router and Axios interceptors.",
+      hi: "Production-ready authentication subsystem jisme user registration, login, email OTP verification aur password recovery shamil hai. Express backend JWT signing, bcrypt password hashing aur PostgreSQL persistence handle karta hai. React frontend Axios interceptors ke sath protected routes ensure karta hai.",
     },
-    url: "https://aptia.txemaalbero.com/",
+    github: "https://github.com/adi-Git-Hub/Authentication-Login-System",
     media: [
-      "/projects/aptia/landing.png",
-      "/projects/aptia/panel.png",
-      "/projects/aptia/registros.png",
-      "/projects/aptia/carta-alergenos.png",
-      "/projects/aptia/inspeccion.png",
-      "/projects/aptia/cuestionario.png",
+      "/projects/auth/dashboard.png",
+      "/projects/auth/login.png",
     ],
-    highlights: ["nextdotjs", "tailwindcss", "python", "postgresql", "typescript"],
-    badge: { es: "En desarrollo", en: "In progress" },
+    highlights: ["nodedotjs", "express", "postgresql", "react", "axios"],
     align: "right",
     section: "project2",
   },
   {
     num: "03",
     name: {
-      es: "Gestor de Finanzas Personales",
-      en: "Personal Finance Tracker",
+      en: "Talent Track — AI Placement Platform",
+      hi: "Talent Track — AI Placement Platform",
     },
     stack: [
-      "Django",
-      "Python",
-      "SQLite",
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Chart.js",
-      "pandas",
+      "React",
+      "Node.js",
+      "Express",
+      "AI Resume Scoring",
+      "PostgreSQL",
+      "REST APIs",
     ],
     desc: {
-      es: "Dashboard para seguimiento de ingresos, gastos y objetivos de ahorro con visualizaciones gráficas, importación desde Excel e informes mensuales.",
-      en: "Dashboard to track income, expenses and savings goals with visual charts, Excel import and monthly reports.",
+      en: "AI-driven placement platform built for students, recruiters, and college placement cells, featuring resume scoring, skill-gap analysis, and mock tests.",
+      hi: "Students aur recruiters ke liye AI placement platform, jisme automated resume scoring, skill-gap analysis aur mock tests integrated hain.",
     },
     details: {
-      es: "Aplicación Django clásica (MVT) para finanzas personales: categorización de gastos, objetivos de ahorro, importación masiva desde Excel (xlsx/xls) y gráficos con Chart.js. Temas claro/oscuro hechos con CSS puro y sin dependencias frontend. Un proyecto que prioriza simplicidad y robustez: sin frameworks en el cliente, autenticación nativa de Django, base de datos SQLite.",
-      en: "Classic Django (MVT) app for personal finance: expense categorisation, savings goals, bulk import from Excel (xlsx/xls) and Chart.js-powered graphs. Light/dark themes in pure CSS with zero frontend dependencies. A project that favours simplicity and robustness: no client framework, Django's built-in auth, SQLite storage.",
+      en: "Developed as team leader for TechnoSphere at the National-Level Rackathon 2026. The platform streamlines campus recruitment through AI-assisted workflows: automated resume evaluation against job descriptions, diagnostic skill-gap reports, interactive mock technical evaluations, and administrative oversight dashboards for placement officers.",
+      hi: "National-Level Rackathon 2026 me Team TechnoSphere ke leader ke roop me develop kiya gaya platform. Ye college recruitment process ko AI workflows se simplify karta hai: automated resume evaluation, skill-gap identification aur placement dashboards.",
     },
-    github: "https://github.com/Txemalon/Gestor-de-gastos-personales",
+    badge: { en: "Rackathon 2026", hi: "Rackathon 2026" },
     media: [
-      "/projects/gestor-gastos/dashboard.png",
-      "/projects/gestor-gastos/wallets.png",
-      "/projects/gestor-gastos/transacciones.png",
-      "/projects/gestor-gastos/categorias.png",
-      "/projects/gestor-gastos/reportes.png",
-      "/projects/gestor-gastos/inversiones.png",
+      "/projects/talent-track/dashboard.png",
+      "/projects/talent-track/analysis.png",
     ],
-    highlights: ["python", "javascript", "html5", "css"],
+    highlights: ["react", "nodedotjs", "postgresql", "javascript", "python"],
     align: "left",
     section: "project3",
   },
   {
     num: "04",
     name: {
-      es: "Tienda online de dianas",
-      en: "Dartboards e-commerce",
+      en: "Amravati Sahayak — AI Local Assistant",
+      hi: "Amravati Sahayak — AI Local Assistant",
     },
     stack: [
-      "Next.js 15",
-      "React",
-      "TypeScript",
-      "Prisma",
-      "PostgreSQL",
-      "NextAuth",
-      "Stripe",
-      "Framer Motion",
+      "JavaScript",
+      "Gemini AI",
+      "Firebase",
+      "HTML5",
+      "CSS3",
+      "REST APIs",
     ],
     desc: {
-      es: "E-commerce moderno para venta de dianas con pagos integrados, autenticación social, panel de administración y animaciones fluidas.",
-      en: "Modern e-commerce for dartboards with integrated payments, social auth, an admin panel and smooth animations.",
+      en: "Conversational AI assistant empowering citizens and travelers with instant access to hospitals, emergency amenities, and local business information.",
+      hi: "Amravati ke citizens aur travelers ke liye conversational AI assistant, hospitals aur essential services ki instant local jankari ke sath.",
     },
     details: {
-      es: "Tienda online completa con catálogo, carrito y checkout con Stripe. NextAuth con Google OAuth y credenciales, rate limiting con Upstash Redis, validación con Zod y un panel de administración separado (AdminJS sobre Express, puerto 3001). Transiciones y microinteracciones con Framer Motion para darle un acabado más premium que una tienda al uso.",
-      en: "A full e-commerce with catalogue, cart and Stripe checkout. NextAuth with Google OAuth and credentials, Upstash Redis for rate limiting, Zod validation, and a separate admin panel (AdminJS on Express, port 3001). Framer Motion powers transitions and micro-interactions for a more premium feel than a typical shop.",
+      en: "Independently conceptualized and demonstrated at the Amravati AI Summit 2026. Features a responsive chat UI communicating with generative AI endpoints to answer location-specific inquiries for healthcare, dining, and city amenities with multilingual conversational capabilities across English, Hindi, and Marathi.",
+      hi: "Amravati AI Summit 2026 me independently present kiya gaya conversational assistant. Generative AI aur Firebase real-time database use karke Hindi, Marathi aur English me local public services ki accurate information deta hai.",
     },
+    url: "https://amravati-sahayak.vercel.app/chat.html",
+    badge: { en: "Amravati AI Summit 2026", hi: "Amravati AI Summit 2026" },
     media: [
-      "/projects/dianas/packs.png",
-      "/projects/dianas/catalogo.png",
+      "/projects/sahayak/chat.png",
+      "/projects/sahayak/search.png",
     ],
-    highlights: ["nextdotjs", "react", "typescript", "tailwindcss", "postgresql"],
-    badge: { es: "En construcción", en: "Under construction" },
+    highlights: ["javascript", "firebase", "axios"],
     align: "right",
     section: "project4",
   },
@@ -186,69 +171,157 @@ const experiences: Array<{
   stack: string[];
 }> = [
   {
-    role: { es: "Tech Lead", en: "Tech Lead" },
-    company: "Activalink",
-    period: { es: "2023 — Presente", en: "2023 — Present" },
-    location: { es: "Alcoy, España", en: "Alcoy, Spain" },
+    role: {
+      en: "Team Leader & Full-Stack Developer",
+      hi: "Team Leader & Full-Stack Developer",
+    },
+    company: "TechnoSphere · National-Level Rackathon 2026",
+    period: { en: "2026", hi: "2026" },
+    location: { en: "Amravati, India", hi: "Amravati, India" },
     summary: {
-      es: "Activalink implementa y adapta ERPs para pymes y grandes empresas. Desarrollo módulos y personalizaciones custom sobre Odoo, integraciones a medida y proyectos de implantación llave en mano. Lidero un equipo de 3 desarrolladores: nuestro trabajo se mide en tiempo ahorrado y errores evitados.",
-      en: "Activalink implements and customises ERPs for SMBs and large companies. I build custom modules and personalisations on top of Odoo, bespoke integrations, and end-to-end implementation projects. I lead a team of 3 developers: our work is measured in time saved and errors avoided.",
+      en: "Led the TechnoSphere engineering team in designing and building the Talent Track platform to streamline university campus placements between students, recruiters, and placement directors.",
+      hi: "TechnoSphere engineering team ko lead kiya Talent Track platform build karne ke liye, taaki campus placements aur technical evaluation process streamlined ho sake.",
     },
     bullets: [
       {
-        es: "OCR de facturas en Odoo — de 4 h/día a 30 min (−87 %).",
-        en: "Invoice OCR in Odoo — from 4 h/day down to 30 min (−87 %).",
+        en: "Architected placement-readiness workflows: automated resume evaluation against industry benchmarks and diagnostic skill-gap identification.",
+        hi: "Placement-readiness workflows architect kiye: automated resume evaluation aur skill-gap identification.",
       },
       {
-        es: "Logística con mapa interactivo — −60 % errores de seguimiento.",
-        en: "Interactive logistics map — −60 % tracking errors.",
+        en: "Engineered frontend React interfaces connected to Node.js/Express REST endpoints for secure multi-role dashboard access.",
+        hi: "React UI ko Node.js/Express REST APIs ke sath connect karke multi-role dashboards develop kiye.",
       },
       {
-        es: "Conciliación automática — cierre contable de 3 días a medio día.",
-        en: "Automated reconciliation — monthly close from 3 days to half a day.",
-      },
-      {
-        es: "Dashboards financieros — detección temprana de facturas sin emitir.",
-        en: "Financial dashboards — early detection of uninvoiced orders.",
+        en: "Formulated technical architecture and defended system design before the national-level jury panel.",
+        hi: "System architecture design formulate kiya aur national jury ke samne live defend kiya.",
       },
     ],
-    stack: ["Odoo", "Python", "PostgreSQL", "Next.js", "TypeScript", "Docker"],
+    stack: ["React", "Node.js", "Express.js", "PostgreSQL", "REST APIs", "Git"],
+  },
+  {
+    role: {
+      en: "AI Solutions Developer & Presenter",
+      hi: "AI Solutions Developer & Presenter",
+    },
+    company: "Amravati AI Summit 2026",
+    period: { en: "2026", hi: "2026" },
+    location: { en: "Amravati, India", hi: "Amravati, India" },
+    summary: {
+      en: "Independently conceptualized, engineered, and demonstrated Amravati Sahayak, a multilingual AI civic assistant for emergency and municipal discovery.",
+      hi: "Amravati Sahayak conversational assistant ko independently build kiya aur Amravati AI Summit me showcase kiya.",
+    },
+    bullets: [
+      {
+        en: "Designed conversational user experience with multilingual natural interaction in Hindi, Marathi, and English for broad civic accessibility.",
+        hi: "Hindi, Marathi aur English me multilingual conversational UI design kiya.",
+      },
+      {
+        en: "Integrated generative AI endpoints with Firebase real-time database for rapid contextual responses on hospitals and local services.",
+        hi: "Generative AI aur Firebase real-time data sync integrate kiya low-latency responses ke liye.",
+      },
+      {
+        en: "Delivered live technical demonstration and architecture walkthrough to industry leaders and engineers at the summit.",
+        hi: "Summit me industry experts aur engineers ke samne live technical demo deliver kiya.",
+      },
+    ],
+    stack: ["JavaScript", "Gemini AI", "Firebase", "REST APIs", "HTML5", "CSS3"],
+  },
+  {
+    role: {
+      en: "Frontend & Storefront Contributor",
+      hi: "Frontend & Storefront Contributor",
+    },
+    company: "SolivaGuard Project",
+    period: { en: "2025 — 2026", hi: "2025 — 2026" },
+    location: { en: "Remote", hi: "Remote" },
+    summary: {
+      en: "Contributed to the customer-facing storefront of SolivaGuard, establishing responsive page architecture and fluid shopping user flows.",
+      hi: "SolivaGuard production e-commerce platform ke storefront UI aur responsive shopping flows me contribute kiya.",
+    },
+    bullets: [
+      {
+        en: "Developed responsive page layouts and reusable React UI component systems maintaining visual fidelity across mobile and desktop viewports.",
+        hi: "Mobile aur desktop ke liye modular React UI components aur responsive layouts create kiye.",
+      },
+      {
+        en: "Streamlined product catalog discovery, variant inspection, and customer shopping navigation performance.",
+        hi: "Product catalog browsing, item discovery aur shopping navigation performance optimize kiya.",
+      },
+      {
+        en: "Collaborated on containerized deployment readiness using Docker and production-level service configurations.",
+        hi: "Docker containers aur production service deployment configurations me actively collaborate kiya.",
+      },
+    ],
+    stack: ["React", "JavaScript", "Tailwind CSS", "Docker", "REST APIs"],
   },
 ];
 
-function pick<T>(loc: { es: T; en: T }, lang: Lang): T {
-  return loc[lang];
-}
+const educationItems = [
+  {
+    degree: {
+      en: "B.Tech in Information Technology",
+      hi: "B.Tech in Information Technology",
+    },
+    status: {
+      en: "Pursuing · Expected 2027",
+      hi: "Currently Pursuing · 2027 Expected",
+    },
+    institution: "H.V.P.M. College of Engineering and Technology",
+    university: "Sant Gadge Baba Amravati University (SGBAU)",
+    metrics: {
+      label: { en: "Semester 4 SGPA", hi: "Semester 4 SGPA" },
+      val: "9.18 / 10",
+    },
+    highlights: [
+      {
+        en: "Core focus on web development, software architectures, and data structures.",
+        hi: "Backend architectures, data structures aur web systems development pe main focus.",
+      },
+      {
+        en: "Active participant in tech innovation competitions, ideathons, and university hackathons.",
+        hi: "Hackathons, technical competitions aur state-level ideathons me active participation.",
+      },
+    ],
+  },
+];
 
-// Hero name split per word so each can rise independently. Whitespace
-// preserved as its own span so the line wraps naturally if needed.
-function HeroWord({
-  text,
-  delay,
-  className = "",
-}: {
-  text: string;
-  delay: number;
-  className?: string;
-}) {
-  return (
-    <span className={`hero-word ${className}`}>
-      <span style={{ animationDelay: `${delay}ms` }}>{text}</span>
-    </span>
-  );
+const certificationItems = [
+  {
+    title: "Data Structures and Algorithms with Java",
+    issuer: "Apna College",
+    verified: true,
+    desc: {
+      en: "Mastery of core data structures, asymptotic algorithmic complexity, and object-oriented systems design.",
+      hi: "Core data structures, algorithm optimization aur object-oriented system design.",
+    },
+    badge: "Java / DSA",
+  },
+  {
+    title: "Full Stack Web Development",
+    issuer: "Apna College",
+    verified: true,
+    desc: {
+      en: "End-to-end full-stack web applications, client-server architectures, and relational & NoSQL databases.",
+      hi: "Complete full-stack web applications, client-server architectures aur SQL/NoSQL databases.",
+    },
+    badge: "Full-Stack Web",
+  },
+];
+
+function pick<T>(loc: { en: T; hi: T }, lang: Lang): T {
+  return loc[lang] ?? loc.en;
 }
 
 export default function Home() {
   const { t, lang } = useLanguage();
   const isMobile = useIsMobile();
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   return (
     <SmoothScroll>
       <div className="relative">
-        {/* Desktop: persistent 3D scene fullscreen behind content. On mobile
-            the canvas lives inside the hero instead (see below) so it scrolls
-            away and the rest of the page is clean, fast 2D. */}
+        {/* Desktop: persistent 3D scene fullscreen behind content. */}
         {!isMobile && (
           <div className="fixed inset-0 z-0">
             <FrozenKeyboard />
@@ -262,11 +335,8 @@ export default function Home() {
               data-cursor="hover"
               className="text-sm font-semibold tracking-tight text-ice-100 whitespace-nowrap"
             >
-              Txema Albero
+              &lt;Urwashi /&gt;
             </span>
-            {/* Wrapper (not the pill itself) carries the hide: .status-pill
-                hard-sets display:inline-flex, which beats Tailwind's .hidden
-                due to CSS source order, so hiding must happen on a parent. */}
             <span className="hidden md:inline-flex">
               <span className="status-pill">{t("header.availability")}</span>
             </span>
@@ -274,18 +344,18 @@ export default function Home() {
           <div className="flex items-center gap-2 pointer-events-auto">
             <SeasonPicker />
             <span className="hidden md:inline-flex">
-            <a
-              href="https://github.com/Txemalon/3d-portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="hover"
-              className="frost-btn !py-1.5 !px-3 !text-xs"
-            >
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden>
-                <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-              </svg>
-              <span>GitHub</span>
-            </a>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="hover"
+                className="frost-btn !py-1.5 !px-3 !text-xs"
+              >
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden>
+                  <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                <span>GitHub</span>
+              </a>
             </span>
             <LanguagePicker />
           </div>
@@ -299,98 +369,164 @@ export default function Home() {
             data-kb-section="hero"
             className="min-h-screen flex flex-col justify-center p-6 sm:p-10 md:p-14"
           >
-            {/* Mobile-only 3D centerpiece. Lives inside the hero (scrolls away
-                with it) and takes pointer events so keycaps are tappable. */}
             {isMobile && (
               <div className="w-full h-[34vh] mt-12 -mb-4 pointer-events-auto">
                 <FrozenKeyboard mobile />
               </div>
             )}
-            <div className="mt-2 md:mt-20">
-              <p
-                className="text-[11px] uppercase tracking-[0.3em] text-ice-300 mb-5 fade-in-up"
-                style={{ ["--d" as string]: "0ms" }}
-              >
-                {t("hero.greeting")}
-              </p>
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold tracking-[-0.03em] text-ice-50 leading-[0.92] whitespace-nowrap">
-                <HeroWord text="Txema" delay={120} />
-                <br />
-                <HeroWord text="Albero" delay={260} className="text-ice-400" />
-              </h1>
-              <p
-                className="mt-8 text-base sm:text-lg md:text-xl text-ice-200 max-w-xl leading-relaxed fade-in-up"
-                style={{ ["--d" as string]: "520ms" }}
-              >
-                {t("hero.roleLine")}
-                <br />
-                {t("hero.tagline")}
-              </p>
+            <div className="mt-2 md:mt-16">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                {/* Background-Removed Cutout Portrait Card */}
+                <div
+                  className="relative shrink-0 pointer-events-auto fade-in-up"
+                  style={{ ["--d" as string]: "100ms" }}
+                >
+                  {/* Atmospheric Glow */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute -inset-3 sm:-inset-5 rounded-3xl bg-gradient-to-tr from-ice-500/30 via-ice-300/15 to-transparent blur-2xl pointer-events-none opacity-80"
+                  />
 
-              {/* CTAs */}
-              <div
-                className="mt-10 flex flex-wrap items-center gap-3 pointer-events-auto fade-in-up"
-                style={{ ["--d" as string]: "700ms" }}
-              >
-                <a
-                  href={lang === "en" ? "/cv_en.pdf" : "/cv.pdf"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cursor="hover"
-                  data-magnetic
-                  className="frost-btn frost-btn--primary"
-                >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-                    <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z" />
-                    <path d="M14 3v5h5" />
-                  </svg>
-                  {t("hero.cv")}
-                </a>
-                <button
-                  type="button"
-                  data-cursor="hover"
-                  data-magnetic
-                  className="frost-btn"
-                  onClick={() =>
-                    document
-                      .querySelector<HTMLElement>(
-                        '[data-kb-section="contact"]'
-                      )
-                      ?.scrollIntoView({ behavior: "smooth", block: "start" })
-                  }
-                >
-                  {t("hero.hire")}
-                </button>
-                {/* Mobile-only full-width break: forces the social icons onto
-                    their own row below the two primary buttons. Hidden on md+
-                    so desktop keeps everything on a single line. */}
-                <div className="basis-full h-0 md:hidden" aria-hidden />
-                <a
-                  href="https://es.linkedin.com/in/jose-mar%C3%ADa-albero-belamendia-b9319a246"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cursor="hover"
-                  data-magnetic
-                  className="frost-icon"
-                  aria-label="LinkedIn"
-                >
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden>
-                    <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.4 0h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V22h-4.56v-6.59c0-1.57-.03-3.6-2.19-3.6-2.19 0-2.53 1.71-2.53 3.48V22H7.62V8z" />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/Txemalon"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cursor="hover"
-                  data-magnetic
-                  className="frost-icon"
-                  aria-label="GitHub"
-                >
-                  <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden>
-                    <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-                  </svg>
-                </a>
+                  {/* Glassmorphic Frame */}
+                  <div className="relative group rounded-3xl border border-ice-700/60 bg-gradient-to-b from-ink-1/90 via-ink-2/65 to-ink-1/90 backdrop-blur-xl p-3 sm:p-3.5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85)] transition-all duration-300 hover:border-ice-500/70">
+                    <div className="relative w-48 sm:w-56 md:w-60 lg:w-64 aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-b from-ink-2/40 to-ink-0/70 flex items-end justify-center">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(122,166,208,0.22),transparent_70%)] pointer-events-none" />
+
+                      <picture>
+                        <source srcSet="/urwashi_transparent.webp" type="image/webp" />
+                        <img
+                          src="/urwashi_transparent.png"
+                          alt="Urwashi Malla"
+                          className="w-full h-full object-contain object-bottom drop-shadow-[0_12px_28px_rgba(0,0,0,0.75)] transition-transform duration-500 group-hover:scale-[1.03]"
+                          loading="eager"
+                        />
+                      </picture>
+
+                      {/* Glass Floating Status Badge */}
+                      <div className="absolute bottom-2.5 inset-x-2.5 flex items-center justify-between px-2.5 py-1 rounded-xl border border-ice-700/80 bg-ink-1/85 backdrop-blur-md text-[11px] font-mono text-ice-100 shadow-lg">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          Urwashi Malla
+                        </span>
+                        <span className="text-ice-400 text-[10px]">Active</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hero Details Column */}
+                <div className="max-w-xl">
+                  {/* Eyebrow */}
+                  <p
+                    className="text-[12px] uppercase tracking-[0.35em] text-ice-300 mb-2 font-mono fade-in-up"
+                    style={{ ["--d" as string]: "0ms" }}
+                  >
+                    HELLO, I&apos;M
+                  </p>
+
+                  {/* Dominant Bold Name */}
+                  <h1
+                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.03em] text-ice-50 leading-[0.98] mb-4 fade-in-up"
+                    style={{ ["--d" as string]: "150ms" }}
+                  >
+                    Urwashi <span className="text-ice-400 font-black">Malla</span>
+                  </h1>
+
+                  {/* Role Title */}
+                  <h2
+                    className="text-xl sm:text-2xl md:text-3xl font-semibold text-ice-100 tracking-tight mb-3 fade-in-up"
+                    style={{ ["--d" as string]: "280ms" }}
+                  >
+                    System Architect &amp; Backend Engineer
+                  </h2>
+
+                  {/* Description */}
+                  <p
+                    className="text-base sm:text-lg text-ice-200/90 leading-relaxed max-w-lg mb-6 fade-in-up"
+                    style={{ ["--d" as string]: "380ms" }}
+                  >
+                    Building scalable systems, robust APIs, and reliable backend infrastructure.
+                  </p>
+
+                  {/* Verified Quick Badges */}
+                  <div
+                    className="mt-6 flex flex-wrap gap-2.5 pointer-events-auto fade-in-up"
+                    style={{ ["--d" as string]: "500ms" }}
+                  >
+                    <span className="font-mono text-xs px-3 py-1 rounded-full border border-ice-700/60 bg-ink-2/70 text-ice-200">
+                      ⚡ 9.18 SGPA
+                    </span>
+                    <span className="font-mono text-xs px-3 py-1 rounded-full border border-ice-700/60 bg-ink-2/70 text-ice-200">
+                      🏆 Rackathon &apos;26 Lead
+                    </span>
+                    <span className="font-mono text-xs px-3 py-1 rounded-full border border-ice-700/60 bg-ink-2/70 text-ice-200">
+                      🤖 AI Summit Presenter
+                    </span>
+                  </div>
+
+                  {/* CTAs */}
+                  <div
+                    className="mt-8 flex flex-wrap items-center gap-3 pointer-events-auto fade-in-up"
+                    style={{ ["--d" as string]: "650ms" }}
+                  >
+                    <a
+                      href="/cv.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="hover"
+                      data-magnetic
+                      className="frost-btn frost-btn--primary"
+                    >
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                        <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z" />
+                        <path d="M14 3v5h5" />
+                      </svg>
+                      {t("hero.cv")}
+                    </a>
+                    <button
+                      type="button"
+                      data-cursor="hover"
+                      data-magnetic
+                      className="frost-btn"
+                      onClick={() =>
+                        document
+                          .querySelector<HTMLElement>(
+                            '[data-kb-section="contact"]'
+                          )
+                          ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                      }
+                    >
+                      {t("hero.hire")}
+                    </button>
+                    <div className="basis-full h-0 md:hidden" aria-hidden />
+                    <a
+                      href={LINKEDIN_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="hover"
+                      data-magnetic
+                      className="frost-icon"
+                      aria-label="LinkedIn"
+                    >
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden>
+                        <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.4 0h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V22h-4.56v-6.59c0-1.57-.03-3.6-2.19-3.6-2.19 0-2.53 1.71-2.53 3.48V22H7.62V8z" />
+                      </svg>
+                    </a>
+                    <a
+                      href={GITHUB_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="hover"
+                      data-magnetic
+                      className="frost-icon"
+                      aria-label="GitHub"
+                    >
+                      <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden>
+                        <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -409,10 +545,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Stack — desktop relies on the 200vh scroll + sticky title while
-              the keyboard does the talking on hover. On mobile (md:) that
-              choreography is gone, so we drop the tall scroll and render a
-              real, legible skills grid with the same taglines. */}
+          {/* Stack */}
           <section
             data-kb-section="stack"
             className="relative md:min-h-[200vh] p-6 sm:p-10 md:p-14"
@@ -432,8 +565,7 @@ export default function Home() {
                 </Reveal>
               </div>
 
-              {/* Mobile skills grid (recovers the hover interaction as static
-                  content the keyboard can't surface on touch). */}
+              {/* Mobile skills grid */}
               {isMobile && (
                 <div className="md:hidden mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 pointer-events-auto">
                   {SKILLS_FLAT.map((s) => (
@@ -466,12 +598,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Experience — title is sticky at top-24 (feels anchored) but sits
-              BEHIND the cards (z-0 vs. card wrapper's z-10), so as you scroll
-              the card slides over the title. The section has no extra filler
-              beyond the cards, so when you scroll past the last card the
-              section ends and the title un-pins and exits the viewport at the
-              same time — giving the "anchored then both disappear" feel. */}
+          {/* Experience */}
           <section
             data-kb-section="experience"
             className="relative p-6 sm:p-10 md:p-14 pb-24"
@@ -568,11 +695,7 @@ export default function Home() {
                 className={
                   p.align === "left"
                     ? "max-w-xl relative"
-                    : // Right-aligned cards get extra right padding on md+ so
-                      // the action buttons ("Ver más") don't sit under the
-                      // fixed SectionNav dots on the right edge. On mobile they
-                      // collapse to a normal left-aligned full-width card.
-                      "max-w-xl relative md:ml-auto md:text-right md:mr-16 lg:mr-24"
+                    : "max-w-xl relative md:ml-auto md:text-right md:mr-16 lg:mr-24"
                 }
               >
                 <Reveal>
@@ -651,8 +774,125 @@ export default function Home() {
             </section>
           ))}
 
-          {/* Contact — copy pinned to the left so the (large, hero-posed)
-              keyboard on the right has room to bob its random keys. */}
+          {/* Education & Certifications */}
+          <section
+            data-kb-section="education"
+            className="relative p-6 sm:p-10 md:p-14 pb-24"
+          >
+            <div className="text-center mb-12 sm:mb-16">
+              <Reveal>
+                <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
+                  {t("education.title")}
+                </h2>
+              </Reveal>
+              <Reveal delay={120}>
+                <p className="mt-3 text-sm sm:text-base text-ice-300">
+                  {t("education.subtitle")}
+                </p>
+              </Reveal>
+            </div>
+
+            <div className="relative z-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Degree Card */}
+              {educationItems.map((edu, idx) => (
+                <Reveal
+                  key={idx}
+                  delay={idx * 100}
+                  as="article"
+                  className="rounded-2xl bg-ink-1/75 backdrop-blur-md border border-ink-3 p-6 sm:p-8 pointer-events-auto flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-ice-400">
+                        {pick(edu.status, lang)}
+                      </span>
+                      <span className="font-mono text-xs text-ice-100 px-2.5 py-0.5 rounded-full border border-ice-700/60 bg-ink-2/60">
+                        SGPA: {edu.metrics.val}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-ice-50 tracking-tight mb-2">
+                      {pick(edu.degree, lang)}
+                    </h3>
+                    <p className="text-ice-300 font-medium text-sm mb-1">
+                      {edu.institution}
+                    </p>
+                    <p className="text-ice-400 text-xs mb-5">
+                      {edu.university}
+                    </p>
+                    <ul className="space-y-2 mb-6">
+                      {edu.highlights.map((h, i) => (
+                        <li key={i} className="flex gap-2.5 text-xs text-ice-200 leading-relaxed">
+                          <span className="mt-[0.55em] flex-none w-1.5 h-1.5 rounded-full bg-ice-400" />
+                          <span>{pick(h, lang)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="pt-4 border-t border-ink-3/60 flex items-center justify-between">
+                    <span className="text-xs text-ice-400 font-mono">Academic Status</span>
+                    <span className="text-xs text-emerald-400 font-medium">Verified Active</span>
+                  </div>
+                </Reveal>
+              ))}
+
+              {/* Certifications Card */}
+              <div className="space-y-4">
+                {certificationItems.map((c, i) => (
+                  <Reveal
+                    key={i}
+                    delay={160 + i * 100}
+                    as="div"
+                    className="rounded-2xl bg-ink-1/75 backdrop-blur-md border border-ink-3 p-6 pointer-events-auto"
+                  >
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="font-mono text-xs text-ice-300 font-medium">
+                        {c.issuer}
+                      </span>
+                      <span className="font-mono text-[10px] text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/40 bg-emerald-950/30">
+                        ✓ {t("education.verified")}
+                      </span>
+                    </div>
+                    <h4 className="text-lg font-bold text-ice-50 mb-1.5">
+                      {c.title}
+                    </h4>
+                    <p className="text-xs text-ice-300 leading-relaxed mb-3">
+                      {pick(c.desc, lang)}
+                    </p>
+                    <span className="font-mono text-[11px] text-ice-400 bg-ink-2/80 px-2.5 py-1 rounded-md border border-ink-3">
+                      {c.badge}
+                    </span>
+                  </Reveal>
+                ))}
+
+                {/* Hackathon & Summit Accolades */}
+                <Reveal
+                  delay={360}
+                  as="div"
+                  className="rounded-2xl bg-ink-1/75 backdrop-blur-md border border-ink-3 p-6 pointer-events-auto"
+                >
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-ice-300 mb-3">
+                    Hackathons & Key Accolades
+                  </h4>
+                  <ul className="space-y-2 text-xs text-ice-200">
+                    <li className="flex items-start gap-2">
+                      <span className="text-amber-400">★</span>
+                      <span>Team Leader for <strong>TechnoSphere</strong> at National-Level Rackathon 2026</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-cyan-400">★</span>
+                      <span>Presenter at <strong>Amravati AI Summit 2026</strong> (Amravati Sahayak)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-400">★</span>
+                      <span>Participant in Business-Plan Competitions & Regional Ideathons</span>
+                    </li>
+                  </ul>
+                </Reveal>
+              </div>
+            </div>
+          </section>
+
+          {/* Contact */}
           <section
             data-kb-section="contact"
             className="relative py-24 md:min-h-screen flex flex-col justify-center p-6 sm:p-10 md:p-14 overflow-hidden"
@@ -683,15 +923,23 @@ export default function Home() {
                     </svg>
                     {t("contact.copyEmail")}
                   </CopyEmail>
-                  <a
-                    href={`mailto:${EMAIL}`}
+
+                  {/* Send Email button opens interactive modal */}
+                  <button
+                    type="button"
+                    onClick={() => setIsContactModalOpen(true)}
                     data-cursor="hover"
-                    className="frost-btn"
+                    className="frost-btn flex items-center gap-2"
                   >
-                    {t("contact.openMail")}
-                  </a>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <path d="M3 7l9 6 9-6" />
+                    </svg>
+                    <span>{t("contact.openMail")}</span>
+                  </button>
+
                   <a
-                    href="https://github.com/Txemalon"
+                    href={GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="hover"
@@ -700,7 +948,7 @@ export default function Home() {
                     {t("contact.github")}
                   </a>
                   <a
-                    href="https://es.linkedin.com/in/jose-mar%C3%ADa-albero-belamendia-b9319a246"
+                    href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="hover"
@@ -722,6 +970,12 @@ export default function Home() {
         <ProjectModal
           project={activeProject}
           onClose={() => setActiveProject(null)}
+        />
+
+        <ContactModal
+          isOpen={isContactModalOpen}
+          onClose={() => setIsContactModalOpen(false)}
+          emailDestination={EMAIL}
         />
       </div>
     </SmoothScroll>

@@ -1,19 +1,19 @@
 import {
-  siCss,
+  siAxios,
   siDocker,
+  siExpress,
+  siFirebase,
   siGit,
-  siHtml5,
   siJavascript,
+  siMongodb,
   siNextdotjs,
   siNodedotjs,
-  siOdoo,
-  siPhp,
+  siOpenjdk,
   siPostgresql,
   siPython,
   siReact,
   siTailwindcss,
   siTypescript,
-  siVuedotjs,
 } from "simple-icons";
 
 export type SkillIcon = {
@@ -23,14 +23,20 @@ export type SkillIcon = {
   hex: string;
 };
 
+// Aliased with clean professional display title
+const javaIcon: SkillIcon = {
+  ...siOpenjdk,
+  title: "Java",
+};
+
 // 3×5 grid — consumed by the 3D keyboard (one icon per keycap) and, on mobile,
 // by the flat list below for the static skills grid that replaces the
 // hover-driven keyboard interaction. Taglines live in the i18n dictionary
 // under `keyboard.taglines.<slug>`.
 export const SKILLS_GRID: readonly (readonly SkillIcon[])[] = [
-  [siJavascript, siTypescript, siHtml5, siCss, siTailwindcss],
-  [siPython, siReact, siNextdotjs, siVuedotjs, siNodedotjs],
-  [siPhp, siOdoo, siPostgresql, siDocker, siGit],
+  [siJavascript, siTypescript, siReact, siNextdotjs, siTailwindcss],
+  [siNodedotjs, siExpress, siPostgresql, siMongodb, siFirebase],
+  [javaIcon, siPython, siAxios, siGit, siDocker],
 ] as const;
 
 export const SKILLS_FLAT: readonly SkillIcon[] = SKILLS_GRID.flat();

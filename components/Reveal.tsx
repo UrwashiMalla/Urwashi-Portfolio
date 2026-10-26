@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  createElement,
   useEffect,
   useRef,
   type CSSProperties,
@@ -80,13 +79,15 @@ export default function Reveal({
     ["--reveal-from" as string]: axis[direction],
   };
 
-  return createElement(
-    Tag,
-    {
-      ref,
-      className: `reveal ${className}`.trim(),
-      style,
-    },
-    children
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Component = Tag as any;
+  return (
+    <Component
+      ref={ref}
+      className={`reveal ${className}`.trim()}
+      style={style}
+    >
+      {children}
+    </Component>
   );
 }

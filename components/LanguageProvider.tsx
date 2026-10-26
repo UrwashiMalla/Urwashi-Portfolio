@@ -4,7 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useState,
   type ReactNode,
 } from "react";
@@ -25,34 +24,25 @@ const Ctx = createContext<LanguageCtx | null>(null);
 
 const STORAGE_KEY = "portfolio-lang";
 
-// Inlined in <head> before hydration so the document lang attribute matches
-// the user's stored preference (avoids FOUC and wrong screen-reader lang).
-export const LANG_BOOT_SCRIPT = `(function(){try{var l=localStorage.getItem(${JSON.stringify(STORAGE_KEY)});var ok=${JSON.stringify(LANGUAGES)};if(l&&ok.indexOf(l)>-1){document.documentElement.lang=l;}}catch(e){}})();`;
+export const LANG_BOOT_SCRIPT = `(function(){try{var l=localStorage.getItem(${JSON.stringify(STORAGE_KEY)});var ok=${JSON.stringify(LANGUAGES)};if(l&&ok.indexOf(l)>-1){document.documentElement.lang=l;}else{document.documentElement.lang="en";}}catch(e){}})();`;
 
 export default function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(DEFAULT_LANG);
-
-  useEffect(() => {
-    // Sync React state with whatever the boot script already applied to the
-    // <html> element. No-op if the boot script didn't find a stored pref.
-    const domLang = document.documentElement.lang;
-    if (
-      (domLang === "es" || domLang === "en") &&
-      domLang !== lang
-    ) {
-      setLangState(domLang);
+  const [lang, setLangState] = useState<Lang>(() => {
+    if (typeof document !== "undefined") {
+      const domLang = document.documentElement.lang as Lang;
+      if (LANGUAGES.includes(domLang)) return domLang;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return DEFAULT_LANG;
+  });
 
   const setLang = useCallback((next: Lang) => {
     setLangState(next);
-    document.documentElement.lang = next;
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = next;
+    }
     try {
       localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // Ignore — state still updates in-memory.
-    }
+    } catch {}
   }, []);
 
   const t = useCallback((path: string) => translate(path, lang), [lang]);
@@ -63,7 +53,6 @@ export default function LanguageProvider({ children }: { children: ReactNode }) 
 export function useLanguage(): LanguageCtx {
   const ctx = useContext(Ctx);
   if (!ctx) {
-    // Safe fallback outside the provider: default language, no-op setter.
     return {
       lang: DEFAULT_LANG,
       setLang: () => {},

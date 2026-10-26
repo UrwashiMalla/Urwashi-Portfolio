@@ -6,7 +6,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 import Carousel from "@/components/Carousel";
 import type { Lang } from "@/lib/i18n";
 
-type Localised = { es: string; en: string };
+type Localised = Record<Lang, string>;
 
 export type ProjectDetail = {
   num: string;
@@ -32,8 +32,8 @@ type Props = {
   onClose: () => void;
 };
 
-function pick<T>(loc: { es: T; en: T }, lang: Lang): T {
-  return loc[lang];
+function pick<T>(loc: Record<Lang, T>, lang: Lang): T {
+  return loc[lang] ?? loc.en;
 }
 
 // Fullscreen modal that details a project. Closes on ESC, click outside,

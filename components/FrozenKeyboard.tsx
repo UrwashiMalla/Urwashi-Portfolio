@@ -106,6 +106,15 @@ const SECTION_STATES: Record<string, KeyboardState> = {
     posZ: 0,
     scale: 0.95,
   },
+  education: {
+    yaw: -Math.PI * 0.22,
+    pitch: Math.PI * 0.12,
+    roll: -Math.PI * 0.02,
+    posX: 1.1,
+    posY: 0.1,
+    posZ: 0,
+    scale: 0.92,
+  },
   // Contact — mirrors the hero pose (same yaw/pitch/roll and scale) but
   // pushed to the right so the "¿Hablamos?" copy can sit on the left. The
   // Keyboard component also reuses the hero-style cinematic idle swing
@@ -431,11 +440,11 @@ function Keycap({
   // Sampled once at mount.
   const randomBob = useMemo(
     () => ({
-      freq: 0.6 + Math.random() * 0.6, // 0.6..1.2 Hz-ish
-      phase: Math.random() * Math.PI * 2,
-      threshold: 0.45 + Math.random() * 0.2, // 0.45..0.65 — higher = rarer pop
+      freq: 0.6 + ((Math.sin(wavePhase * 9301 + 49297) + 1) / 2) * 0.6,
+      phase: ((Math.sin(wavePhase * 49297 + 9301) + 1) / 2) * Math.PI * 2,
+      threshold: 0.45 + ((Math.sin(wavePhase * 1337 + 7919) + 1) / 2) * 0.2,
     }),
-    []
+    [wavePhase]
   );
 
   const iconTexture = useMemo(

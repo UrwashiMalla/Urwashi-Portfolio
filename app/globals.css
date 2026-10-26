@@ -714,3 +714,18 @@ body {
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
+/* ─── Hide Next.js Dev Indicator Badge ("N" logo at bottom-left) ────────── */
+[data-nextjs-toast],
+[data-nextjs-dev-tools-indicator],
+[data-nextjs-dialog-overlay],
+nextjs-portal,
+#nextjs-dev-overlay,
+.__next-dev-tools,
+div[data-nextjs-dev-tools-indicator],
+[data-nextjs-portal] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
