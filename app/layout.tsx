@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { assetPath } from "@/lib/asset";
 import CustomCursor from "@/components/CustomCursor";
 import FrozenBackground from "@/components/FrozenBackground";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -24,6 +25,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Urwashi Malla — System Architect & Full-Stack Engineer",
+  icons: {
+    icon: assetPath("/favicon.ico"),
+  },
   description:
     "Portfolio of Urwashi Malla — System Architect, Backend & Full-Stack Engineer. Interactive 3D mechanical keyboard experience built with Next.js, React Three Fiber, and Tailwind CSS.",
   authors: [{ name: "Urwashi Malla" }],
