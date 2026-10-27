@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Urwashi Malla — System Architect & Full-Stack Engineer",
   icons: {
-    icon: assetPath("/favicon.ico"),
+    icon: assetPath("/favicon.ico?v=2"),
   },
   description:
     "Portfolio of Urwashi Malla — System Architect, Backend & Full-Stack Engineer. Interactive 3D mechanical keyboard experience built with Next.js, React Three Fiber, and Tailwind CSS.",
