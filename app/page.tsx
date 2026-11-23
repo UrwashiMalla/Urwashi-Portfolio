@@ -26,7 +26,7 @@ type Localised = { en: string; hi: string };
 
 type Project = ProjectDetail & {
   align: "left" | "right";
-  section: "project1" | "project2" | "project3" | "project4";
+  section: "project1" | "project2" | "project3" | "project4" | "project5";
 };
 
 const projects: Project[] = [
@@ -159,6 +159,39 @@ const projects: Project[] = [
     highlights: ["javascript", "firebase", "axios"],
     align: "right",
     section: "project4",
+  },
+  {
+    num: "05",
+    name: {
+      en: "EDVIKO — AI Virtual Teacher & Learning Platform",
+      hi: "EDVIKO — AI Virtual Teacher & Learning Platform",
+    },
+    stack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "AI/LLM",
+      "Tailwind CSS",
+    ],
+    desc: {
+      en: "AI-powered virtual teacher and classroom management platform providing intelligent tutoring, automated lecture notes generation, and adaptive quizzes with multilingual support.",
+      hi: "AI-powered virtual teacher aur classroom management platform, jo personalized tutoring, automated notes generation, aur multilingual quiz features provide karta hai.",
+    },
+    details: {
+      en: "Engineered a full-scale AI educational platform designed to make personalized digital learning accessible across educational levels. Features an intelligent AI virtual teacher for interactive tutoring, automated lecture summaries, and adaptive quiz generation. Includes a centralized digital classroom management system with persistent joining codes, role-based student and teacher portals, direct faculty-student messaging, and secure authentication with email OTP verification.",
+      hi: "Personalized learning ko accessible banane ke liye full-scale AI educational platform develop kiya. Isme AI virtual teacher interactive tutoring, automated lecture notes generation, aur multilingual quiz generation provide karta hai. Iske sath persistent codes wala classroom management system, multi-role teacher & student dashboards, 1-on-1 messaging aur secure OTP authentication shamil hai.",
+    },
+    url: "https://178-104-199-229.sslip.io/",
+    badge: { en: "Hackverse 2026", hi: "Hackverse 2026" },
+    media: [
+      "/projects/edviko/logo.png",
+      "/projects/edviko/student.png",
+      "/projects/edviko/teacher.jpg",
+    ],
+    highlights: ["react", "nodedotjs", "express", "mongodb", "javascript"],
+    align: "left",
+    section: "project5",
   },
 ];
 
@@ -471,7 +504,7 @@ export default function Home() {
                     style={{ ["--d" as string]: "650ms" }}
                   >
                     <a
-                      href={assetPath("/cv.pdf")}
+                      href={assetPath("/Urwashi_resume.pdf")}
                       target="_blank"
                       rel="noopener noreferrer"
                       data-cursor="hover"
